@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yves-Laurent Creton | creton.dev</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .font-code {
+            font-family: 'Fira Code', monospace;
+        }
+        #background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .typing-cursor::after {
+            content: '_';
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            from, to { opacity: 1 }
+            50% { opacity: 0 }
+        }
+    </style>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-gray-50 dark:bg-[#0d1117] text-gray-800 dark:text-gray-200 transition-colors duration-300">
+
+    <button id="theme-toggle" class="fixed top-6 right-6 z-50 p-2 rounded-full bg-white/50 dark:bg-gray-900/50 text-gray-500 dark:text-gray-400 backdrop-blur-sm border border-white/20 dark:border-gray-700/50 shadow-lg hover:scale-110 transition-transform">
+        <svg id="theme-toggle-dark-icon" class="hidden h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+        <svg id="theme-toggle-light-icon" class="hidden h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+    </button>
+
+    <canvas id="background-animation"></canvas>
+
+    <div class="relative min-h-screen flex flex-col items-center justify-center p-4 sm:p-6 lg:p-8">
+        <main class="w-full max-w-4xl mx-auto z-10">
+            <header class="text-center mb-16">
+                <div class="flex items-center justify-center gap-4 mb-4">
+                    <h1 id="typing-title" class="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white font-code min-h-[60px] sm:min-h-[72px]"></h1>
+                </div>
+                <p class="text-lg text-gray-500 dark:text-gray-400">
+                    A collection of tools and utilities by Yves-Laurent Creton.
+                </p>
+            </header>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <!-- CretPosh -->
+                <a href="https://powershell.creton.dev" class="block p-6 bg-white/80 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-800 rounded-xl shadow-sm hover:border-blue-500 dark:hover:border-blue-500 hover:scale-[1.02] transition-all duration-300 backdrop-blur-sm">
+                    <div class="flex items-start gap-4">
+                        <div class="text-blue-500 dark:text-blue-400">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17l6-6-6-6"/><path d="M12 19h8"/></svg>
+                        </div>
+                        <div>
+                            <h2 class="font-bold text-2xl mb-1 font-code text-blue-600 dark:text-blue-400">CretPosh</h2>
+                            <p class="text-gray-600 dark:text-gray-300">
+                                A PowerShell module collection for enhanced productivity and automation tasks.
+                            </p>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- CretNet -->
+                <a href="https://dotnet.creton.dev" class="block p-6 bg-white/80 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-800 rounded-xl shadow-sm hover:border-purple-500 dark:hover:border-purple-500 hover:scale-[1.02] transition-all duration-300 backdrop-blur-sm">
+                     <div class="flex items-start gap-4">
+                        <div class="text-purple-500 dark:text-purple-400">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12c-2-2.67-4-4-6-4a4 4 0 1 0 0 8c2 0 4-1.33 6-4Zm0 0c2 2.67 4 4 6 4a4 4 0 1 0 0-8c-2 0-4 1.33-6 4Z"/></svg>
+                        </div>
+                        <div>
+                            <h2 class="font-bold text-2xl mb-1 font-code text-purple-600 dark:text-purple-400">CretNet</h2>
+                            <p class="text-gray-600 dark:text-gray-300">
+                                A .NET template for bootstrapping modern Web APIs with sensible defaults.
+                            </p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- CretDocs -->
+                <a href="https://docs.creton.dev" class="block p-6 bg-white/80 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-800 rounded-xl shadow-sm hover:border-teal-500 dark:hover:border-teal-500 hover:scale-[1.02] transition-all duration-300 backdrop-blur-sm">
+                     <div class="flex items-start gap-4">
+                        <div class="text-teal-500 dark:text-teal-400">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                        </div>
+                        <div>
+                            <h2 class="font-bold text-2xl mb-1 font-code text-teal-600 dark:text-teal-400">CretDocs</h2>
+                            <p class="text-gray-600 dark:text-gray-300">
+                                A utility to seamlessly publish Markdown documentation to Confluence pages.
+                            </p>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- CretX -->
+                <a href="#" class="block p-6 bg-white/80 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-800 rounded-xl shadow-sm hover:border-orange-500 dark:hover:border-orange-500 hover:scale-[1.02] transition-all duration-300 backdrop-blur-sm">
+                    <div class="flex items-start gap-4">
+                        <div class="text-orange-500 dark:text-orange-400">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h8"/><path d="M10 12l4-4"/><path d="M10 12l4 4"/><path d="M14 8h6"/><path d="M14 16h6"/></svg>
+                        </div>
+                        <div>
+                            <h2 class="font-bold text-2xl mb-1 font-code text-orange-600 dark:text-orange-400">CretX</h2>
+                            <p class="text-gray-600 dark:text-gray-300">
+                                A smart, lightweight, and configurable reverse proxy service built with .NET.
+                            </p>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </main>
+        
+        <footer class="w-full max-w-4xl mx-auto text-center mt-12 text-gray-400 dark:text-gray-600 text-sm">
+            &copy; 2025 Yves-Laurent Creton. All rights reserved.
+        </footer>
+    </div>
+
+    <script>
+        // Dark/Light mode logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || 
+           (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            themeToggleLightIcon.classList.remove('hidden');
+        } else {
+            document.documentElement.classList.remove('dark');
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        themeToggleBtn.addEventListener('click', function() {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+
+        // Title typing animation
+        const typingElement = document.getElementById('typing-title');
+        const word = "creton.dev";
+        let charIndex = 0;
+        
+        function type() {
+            const typeSpeed = 150;
+            if (charIndex < word.length) {
+                typingElement.textContent += word.charAt(charIndex);
+                charIndex++;
+                setTimeout(type, typeSpeed);
+            } else {
+                typingElement.classList.add('typing-cursor');
+            }
+        }
+
+
+        // Background animation logic
+        const canvas = document.getElementById('background-animation');
+        const ctx = canvas.getContext('2d');
+
+        let width, height, particles = [];
+        
+        const particleData = [
+            // Font Awesome Icons
+            { char: '\uf121', fontFamily: 'Font Awesome 6 Free', weight: '900' }, // code
+            { char: '\uf126', fontFamily: 'Font Awesome 6 Free', weight: '900' }, // code-branch
+            { char: '\uf120', fontFamily: 'Font Awesome 6 Free', weight: '900' }, // terminal
+            { char: '\uf3b9', fontFamily: 'Font Awesome 6 Brands', weight: '400' }, // square-js
+            { char: '\uf13b', fontFamily: 'Font Awesome 6 Brands', weight: '400' }, // html5
+            { char: '\uf17c', fontFamily: 'Font Awesome 6 Brands', weight: '400' }, // linux
+            { char: '\uf395', fontFamily: 'Font Awesome 6 Brands', weight: '400' }, // docker
+            { char: '\uf841', fontFamily: 'Font Awesome 6 Brands', weight: '400' }, // git-alt
+            { char: '\uf09b', fontFamily: 'Font Awesome 6 Brands', weight: '400' }, // github
+            { char: '\uf38b', fontFamily: 'Font Awesome 6 Brands', weight: '400' }, // css3-alt
+            { char: '\uf3ca', fontFamily: 'Font Awesome 6 Brands', weight: '400' }, // microsoft
+            // Text characters
+            { char: '()', fontFamily: 'Fira Code', weight: '500' },
+            { char: ';', fontFamily: 'Fira Code', weight: '500' },
+            { char: '<', fontFamily: 'Fira Code', weight: '500' },
+            { char: '>', fontFamily: 'Fira Code', weight: '500' },
+            { char: '{', fontFamily: 'Fira Code', weight: '500' },
+            { char: '}', fontFamily: 'Fira Code', weight: '500' },
+            { char: '/', fontFamily: 'Fira Code', weight: '500' },
+        ];
+        
+        const particleCount = 20;
+
+        function init() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+            particles = [];
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(createParticle(true));
+            }
+        }
+
+        function createParticle(initialSpawn = false) {
+            const data = particleData[Math.floor(Math.random() * particleData.length)];
+            let x, y, targetX, targetY;
+            const buffer = 20;
+
+            if (initialSpawn) {
+                // Start somewhere random on the screen
+                x = Math.random() * width;
+                y = Math.random() * height;
+                // Give it a random direction
+                const randomAngle = Math.random() * 2 * Math.PI;
+                targetX = x + Math.cos(randomAngle) * 1000;
+                targetY = y + Math.sin(randomAngle) * 1000;
+            } else {
+                // Start at a random edge
+                const edge = Math.floor(Math.random() * 4);
+                switch (edge) {
+                    case 0: // Top
+                        x = Math.random() * width; y = -buffer;
+                        targetX = Math.random() * width; targetY = height + buffer;
+                        break;
+                    case 1: // Right
+                        x = width + buffer; y = Math.random() * height;
+                        targetX = -buffer; targetY = Math.random() * height;
+                        break;
+                    case 2: // Bottom
+                        x = Math.random() * width; y = height + buffer;
+                        targetX = Math.random() * width; targetY = -buffer;
+                        break;
+                    case 3: // Left
+                        x = -buffer; y = Math.random() * height;
+                        targetX = width + buffer; targetY = Math.random() * height;
+                        break;
+                }
+            }
+
+            const angle = Math.atan2(targetY - y, targetX - x);
+            const speed = 0.1 + Math.random() * 0.2;
+
+            return {
+                x: x, y: y,
+                speedX: Math.cos(angle) * speed,
+                speedY: Math.sin(angle) * speed,
+                char: data.char,
+                fontFamily: data.fontFamily,
+                fontWeight: data.weight,
+                size: 10 + Math.random() * 14, 
+                opacity: 0.1 + Math.random() * 0.2 
+            };
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            const isDarkMode = document.documentElement.classList.contains('dark');
+            const baseFillStyle = isDarkMode ? 'rgba(255, 255, 255,' : 'rgba(0, 0, 0,';
+
+            for (let i = 0; i < particles.length; i++) {
+                let p = particles[i];
+                p.x += p.speedX;
+                p.y += p.speedY;
+                
+                // Reset particle if it's far out of view
+                if (p.x < -50 || p.x > width + 50 || p.y < -50 || p.y > height + 50) {
+                    particles[i] = createParticle();
+                }
+
+                ctx.fillStyle = baseFillStyle + p.opacity + ')';
+                ctx.font = `${p.fontWeight} ${p.size}px "${p.fontFamily}"`;
+                ctx.fillText(p.char, p.x, p.y);
+            }
+            requestAnimationFrame(animate);
+        }
+        
+        function handleResize() {
+            const oldWidth = width;
+            const oldHeight = height;
+            
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+
+            for (const p of particles) {
+                p.x = (p.x / oldWidth) * width;
+                p.y = (p.y / oldHeight) * height;
+            }
+        }
+
+        window.onload = function() {
+            typingElement.textContent = ""; 
+            type();
+            init();
+            animate();
+        }
+        window.addEventListener('resize', handleResize);
+
+    </script>
+</body>
+</html>
